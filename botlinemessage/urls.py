@@ -18,6 +18,6 @@ from django.urls import include, path
 from . import views
 urlpatterns = [
     path('',views.index),
-    path('callback/', include('callback.urls')),
+    path('^callback/$', include('callback.urls')),
     path('admin/', admin.site.urls),
 ]
