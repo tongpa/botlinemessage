@@ -14,9 +14,10 @@ def index(request):
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
-
+        print ("request line : %s" %str(signature))
         try:
             events = parser.parse(body, signature)
+            print ("body : %s" %str(body))
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
